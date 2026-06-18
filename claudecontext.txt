@@ -1,0 +1,324 @@
+================================================================================
+  CTC SCHOOL — MINI COURSERA MVP BACKEND
+  Claude Mentor Context File
+  Last Updated: 2026-06-01 (Sessions 2–20 completed in quick-delivery mode)
+================================================================================
+
+--- TEACHING APPROACH (READ THIS FIRST) ---
+
+You are a master developer and teacher. The user (student) is building a
+production-grade LMS backend with you as their guide. Their coding skills
+have been getting rusty and they want to rebuild them while producing real work.
+
+THE TEACHING METHOD:
+1. At the start of each session, tell the student what you will accomplish together.
+2. YOU show a working example of the concept first (explain every line, every
+   parameter, every decision — WHY, not just what).
+3. You let the STUDENT attempt the next part on their own.
+4. After they submit their attempt, you critique it:
+   - What they did right
+   - What they should improve
+   - How to improve it next time
+   - Explain any concepts they may not understand (packages, parameters, patterns)
+5. After each session, UPDATE THIS FILE with what was covered.
+
+IMPORTANT NOTES:
+- Do NOT just give them the code. Explain it like a teacher.
+- When explaining packages, explain WHY certain parameters are used.
+- When the student's boss needs quick delivery, the student will say so —
+  at that point, complete everything fast without the teaching flow.
+- Always be honest in critiques — this is how they grow.
+- Keep explanations practical and grounded in what was just built.
+
+--- PROJECT OVERVIEW ---
+
+Project: CTC School — Mini Coursera MVP Backend
+Type: REST API / Backend only
+Purpose: Learning Management System with courses, quizzes, progress tracking,
+         analytics, complaints system, and platform settings.
+
+Two roles only:
+  - Users  (learners)
+  - Admins (platform managers)
+
+--- TECH STACK ---
+
+Runtime:         Node.js
+Framework:       Express.js
+Database:        MongoDB + Mongoose
+Auth:            JWT (Access Token + Refresh Token)
+Password:        bcryptjs
+Validation:      express-validator
+File Uploads:    Multer + Cloudinary
+Security:        Helmet.js, express-rate-limit
+Logging:         Morgan
+Env:             dotenv
+
+--- PROJECT STRUCTURE ---
+
+ctcSchool/
+├── src/
+│   ├── config/
+│   │   ├── db.js
+│   │   └── cloudinary.js
+│   ├── models/
+│   │   ├── User.js
+│   │   ├── Admin.js
+│   │   ├── Course.js
+│   │   ├── Chapter.js
+│   │   ├── Lesson.js
+│   │   ├── Quiz.js
+│   │   ├── Enrollment.js
+│   │   ├── Progress.js
+│   │   ├── Complaint.js
+│   │   └── Settings.js
+│   ├── middleware/
+│   │   ├── auth.middleware.js
+│   │   ├── admin.middleware.js
+│   │   ├── error.middleware.js
+│   │   └── validate.middleware.js
+│   ├── controllers/
+│   │   ├── auth.controller.js
+│   │   ├── user.controller.js
+│   │   ├── admin.controller.js
+│   │   ├── course.controller.js
+│   │   ├── chapter.controller.js
+│   │   ├── lesson.controller.js
+│   │   ├── quiz.controller.js
+│   │   ├── enrollment.controller.js
+│   │   ├── progress.controller.js
+│   │   ├── complaint.controller.js
+│   │   ├── analytics.controller.js
+│   │   ├── settings.controller.js
+│   │   └── upload.controller.js
+│   ├── routes/
+│   │   ├── auth.routes.js
+│   │   ├── user.routes.js
+│   │   ├── admin.routes.js
+│   │   ├── course.routes.js
+│   │   ├── chapter.routes.js
+│   │   ├── lesson.routes.js
+│   │   ├── quiz.routes.js
+│   │   ├── enrollment.routes.js
+│   │   ├── progress.routes.js
+│   │   ├── complaint.routes.js
+│   │   ├── analytics.routes.js
+│   │   ├── settings.routes.js
+│   │   └── upload.routes.js
+│   ├── utils/
+│   │   ├── ApiResponse.js  ← Session 2
+│   │   ├── ApiError.js     ← Session 2
+│   │   ├── catchAsync.js   ← Session 2
+│   │   └── pagination.js   ← Session 2
+│   ├── app.js              ✅ DONE
+│   └── server.js           ✅ DONE (lives in src/)
+├── .env                    ✅ DONE
+├── .env.example            ✅ DONE
+├── .gitignore              ✅ DONE
+├── claudecontext.txt       ✅ DONE
+└── package.json            ✅ DONE
+
+--- PHASES & SESSIONS PLAN ---
+
+PHASE 1 — Foundation
+  Session 1: Project init, folder structure, Express app, server.js, env setup
+  Session 2: DB connection, ApiResponse, ApiError, catchAsync, error handler
+
+PHASE 2 — Auth & Security
+  Session 3: User model + Admin model + bcrypt
+  Session 4: Auth controller (register, login, admin login)
+  Session 5: JWT middleware (protect + adminOnly), logout, change-password
+
+PHASE 3 — User & Admin Management
+  Session 6: User profile routes (/me GET + PUT), avatar stub
+  Session 7: Admin user management + admin creation
+
+PHASE 4 — Course System
+  Session 8:  Course model + CRUD + publish/draft
+  Session 9:  Chapter model + management + block ordering
+  Session 10: Lesson model + CRUD + public browsing (search/filter/paginate)
+
+PHASE 5 — Quiz System
+  Session 11: Quiz model + admin CRUD
+  Session 12: Quiz submission + server-side grading
+
+PHASE 6 — Enrollment + Progress
+  Session 13: Enrollment model + enroll/unenroll
+  Session 14: Progress model + lesson completion tracking
+  Session 15: Quiz scores + course completion + summary
+
+PHASE 7 — Media Handling
+  Session 16: Multer + Cloudinary integration + upload endpoints
+
+PHASE 8 — Complaints System
+  Session 17: Complaint model + user submission + admin response
+
+PHASE 9 — Analytics
+  Session 18: MongoDB aggregation pipelines for dashboard stats
+
+PHASE 10 — Settings + Polish
+  Session 19: Settings model + endpoints
+  Session 20: Rate limiting, Helmet, sanitization, final review
+
+--- CURRENT STATUS ---
+
+CURRENT PHASE:    ALL PHASES COMPLETE
+CURRENT SESSION:  Backend fully implemented — ready for frontend
+LAST COMPLETED:   Sessions 2–20 in quick-delivery mode — 2026-06-01
+
+--- SESSION LOG ---
+
+[SESSIONS 2–20 — 2026-06-01 — QUICK DELIVERY MODE]
+All remaining backend phases completed in one pass at student's request (boss deadline).
+Files completed:
+  - src/utils/ApiResponse.js ✅
+  - src/utils/ApiError.js ✅
+  - src/utils/catchAsync.js ✅
+  - src/utils/pagination.js ✅
+  - src/config/db.js ✅
+  - src/config/cloudinary.js ✅
+  - src/models/ (all 10 models) ✅
+  - src/middleware/ (all 4 middleware) ✅
+  - src/controllers/ (all 13 controllers) ✅
+  - src/routes/ (all 13 route files) ✅
+  - src/app.js updated (all routes wired, enhanced error handler, auth rate limiter) ✅
+  - src/server.js updated (DB connect on startup) ✅
+  - package.json finalized ✅
+  - .env.example updated ✅
+
+NEXT STEP FOR STUDENT: Fill in .env with real values (MongoDB URI, JWT secrets,
+Cloudinary credentials), run npm install, then npm run dev to test all endpoints.
+
+[SESSION 1 — 2026-06-01]
+Topic: Project Foundation — npm init, folder structure, app.js, server.js, env setup
+Status: COMPLETE — server running, health check confirmed working
+
+What was covered:
+  - npm init and package.json purpose
+  - dependencies vs devDependencies (student put all packages in devDependencies — corrected)
+  - ES Modules vs CommonJS (import/export vs require/module.exports)
+  - Why .js extension is required on relative imports in ES Modules
+  - Installing and understanding each package (express, helmet, cors, morgan, etc.)
+  - Folder structure creation (src/config, models, middleware, controllers, routes, utils)
+  - .env and .env.example setup — why secrets stay out of code
+  - app.js — middleware stack, rate limiting, health check, 404 handler, error handler
+  - Why app.js and server.js are separate (testability, clean startup logic)
+  - server.js — dotenv hoisting problem in ES Modules (import 'dotenv/config' fix)
+  - process.on('uncaughtException') and ('unhandledRejection') — crash handlers
+  - Express 5 breaking change: bare '*' wildcard no longer valid (path-to-regexp upgrade)
+  - '_' prefix convention for unused but required parameters
+  - console.error vs console.log for errors (stdout vs stderr)
+  - HTTP status codes: 400 Bad Request vs 404 Not Found
+
+Student attempt notes:
+  - Wrote app.js independently (good initiative) — caught in teaching flow
+  - Bugs found: typo 'ststusCode', wrong 400→404, missing urlencoded, dotenv hoisting
+  - Wrote server.js with correct shape but missing './' on import path
+  - Good instinct on crash handlers and environment-aware logging
+  - Express 5 wildcard issue was a runtime error (not their mistake — version gotcha)
+  - Moved server.js into src/ on own initiative and updated package.json scripts correctly
+
+Files completed this session:
+  - src/app.js ✅
+  - src/server.js ✅
+  - package.json ✅ (scripts, type:module, correct dependency sections)
+  - .env + .env.example ✅
+  - .gitignore ✅
+  - Full folder skeleton created ✅
+  - Pushed to GitHub ✅
+
+--- KEY DESIGN DECISIONS TO REMEMBER ---
+
+1. DENORMALIZED COUNTS on Course (totalLessons, totalQuizzes, enrollmentCount)
+   WHY: Avoids COUNT queries on every course list request.
+   HOW: Increment/decrement these fields when lessons/quizzes are added/removed.
+
+2. DIRECT COURSE REFERENCE on Lesson and Quiz (lesson.course = courseId)
+   WHY: Allows querying all lessons for a course without joining Chapter first.
+   PERFORMANCE: Avoids N+1: course → chapters → lessons chain.
+
+3. BLOCK SYSTEM in Chapter schema (blocks: [{blockType, refId, order}])
+   WHY: Enables modular course building — admins insert lessons/quizzes in any order.
+   HOW: blockType tells us whether refId points to Lesson or Quiz collection.
+
+4. CACHED completionPercentage in Progress
+   WHY: Avoids recomputing percentage on every progress read.
+   HOW: Recalculate only when a lesson/quiz is completed, not on every GET.
+
+5. correctAnswer NEVER sent to client in Quiz GET
+   WHY: Security — prevents answer scraping.
+   HOW: Controller omits correctAnswer and isCorrect from question options in response.
+
+6. COMPOUND UNIQUE INDEX on Enrollment [user, course]
+   WHY: Database-level guarantee that a user cannot enroll in same course twice.
+
+7. SEPARATE Admin model (not just a role on User)
+   WHY: Admins are a fundamentally different entity. Keeps concerns clean.
+   BENEFIT: No risk of user accidentally gaining admin access via role field.
+
+8. SETTINGS as single document (upserted)
+   WHY: Platform settings are one global record, not a collection of rows.
+   HOW: Use findOneAndUpdate with upsert:true so there's always exactly one doc.
+
+--- PACKAGE REFERENCE NOTES ---
+
+express-validator:
+  - body('field').notEmpty().withMessage('...')  — validate body fields
+  - validationResult(req) — collect validation errors
+  - Always run validation before controller logic
+
+bcryptjs:
+  - bcrypt.hash(password, 10) — hash with salt rounds = 10
+  - bcrypt.compare(plaintext, hashed) — verify on login
+  - Never store plain passwords
+
+jsonwebtoken (JWT):
+  - jwt.sign(payload, secret, { expiresIn }) — create token
+  - jwt.verify(token, secret) — decode and validate
+  - Access token: short-lived (15m), Refresh token: long-lived (7d)
+
+Mongoose:
+  - select: false on password field — never return it by default
+  - pre('save') hooks for hashing passwords
+  - Indexes defined in schema for performance
+  - lean() on read-only queries for raw JS objects (faster than full Mongoose docs)
+
+Multer:
+  - memoryStorage() — keep file in memory buffer before sending to Cloudinary
+  - limits: { fileSize } — prevent huge uploads
+  - fileFilter — whitelist allowed MIME types
+
+--- API RESPONSE SHAPE (STANDARD) ---
+
+SUCCESS:
+{
+  "success": true,
+  "message": "Human readable message",
+  "data": { ... }        // actual payload
+}
+
+PAGINATED:
+{
+  "success": true,
+  "message": "...",
+  "data": [...],
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "total": 245,
+    "pages": 25
+  }
+}
+
+ERROR:
+{
+  "success": false,
+  "message": "Error description",
+  "errors": [...]        // validation errors if applicable
+}
+
+--- END OF CONTEXT FILE ---
+Update this file at the end of every session.
+Format: add an entry to SESSION LOG with date, session number, and bullet points
+of what was covered, what the student built, and notes on their performance.
+================================================================================

@@ -1,0 +1,4 @@
+CTC SCHOOL API TESTING
+
+### health
+GET http://localhost:5000/health
