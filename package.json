@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js",
-    "seed": "node ./userSeed.js"
+    "seed": "node ./userSeed.js",
+    "seed-courses": "node ./src/scripts/seedCourses.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

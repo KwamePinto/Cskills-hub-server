@@ -74,6 +74,22 @@ export const uploadImage = [
   }),
 ];
 
+// ── Admin course thumbnail ────────────────────────────────────
+export const uploadThumbnail = [
+  imageUpload.single('image'),
+  catchAsync(async (req, res) => {
+    if (!req.file) throw new ApiError(400, 'No image file provided');
+    const result = await uploadToCloudinary(req.file.buffer, {
+      folder: 'ctcschool/thumbnails',
+      resource_type: 'image',
+      transformation: [{ quality: 'auto', fetch_format: 'auto', width: 1200, height: 675, crop: 'fill' }],
+    });
+    res.status(200).json(
+      new ApiResponse(200, { url: result.secure_url, publicId: result.public_id }, 'Thumbnail uploaded')
+    );
+  }),
+];
+
 // ── Admin lesson image ────────────────────────────────────────
 export const uploadImageAdmin = [
   imageUpload.single('image'),

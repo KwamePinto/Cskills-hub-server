@@ -53,6 +53,11 @@ export const reorderChapter = catchAsync(async (req, res) => {
   res.status(200).json(new ApiResponse(200, chapter, 'Chapter reordered'));
 });
 
+export const getChaptersByCourse = catchAsync(async (req, res) => {
+  const chapters = await Chapter.find({ course: req.params.courseId }).sort({ order: 1 }).lean();
+  res.status(200).json(new ApiResponse(200, chapters, 'Chapters fetched'));
+});
+
 export const addBlock = catchAsync(async (req, res) => {
   const { blockType, refId, order } = req.body;
   if (!blockType || !refId || order === undefined) {

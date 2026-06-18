@@ -6,6 +6,7 @@ import {
   reorderChapter,
   addBlock,
   removeBlock,
+  getChaptersByCourse,
 } from '../controllers/chapter.controller.js';
 import { protectAdmin } from '../middleware/admin.middleware.js';
 import validate from '../middleware/validate.middleware.js';
@@ -14,6 +15,7 @@ const router = Router();
 
 router.use(protectAdmin);
 
+router.get('/courses/:courseId', getChaptersByCourse);
 router.post('/courses/:courseId/chapters', chapterValidators, validate, addChapter);
 router.put('/:id', updateChapter);
 router.delete('/:id', deleteChapter);
